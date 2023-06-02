@@ -2,7 +2,7 @@ from app import app, db
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import BaseView, expose, AdminIndexView
-from app.models import UserRole, Service, Status, Patient
+from app.models import UserRole, Service, Status, Patient, Formulaire
 from flask_login import current_user, logout_user
 from flask import redirect, request
 import utils
@@ -30,6 +30,9 @@ class PatientView(AuthenticatedModelView):
     }
     column_sortable_list = ['id', 'name_patient', 'ordre_de_gravite_patient']
 
+class FormulaireView(AuthenticatedModelView):
+    can_export = True
+
 class LogoutView(BaseView):
     @expose('/')
     def index(self):
@@ -48,7 +51,8 @@ admin = Admin(app=app,
               name='Hoptilit',
               template_mode='bootstrap4',
               index_view=MyAdminIndex())
-admin.add_view(AuthenticatedModelView(Service, db.session, name='Service'))
-admin.add_view(AuthenticatedModelView(Status, db.session, name='Status'))
-admin.add_view(PatientView(Patient, db.session, name='Patient'))
+#admin.add_view(AuthenticatedModelView(Service, db.session, name='Service'))
+#admin.add_view(AuthenticatedModelView(Status, db.session, name='Status'))
+#admin.add_view(PatientView(Patient, db.session, name='Patient'))
+admin.add_view(FormulaireView(Formulaire, db.session, name='Formulaire'))
 admin.add_view(LogoutView(name='Logout'))

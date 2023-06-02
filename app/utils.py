@@ -64,12 +64,12 @@ def check_login(username, password, role=UserRole.USER):
 
         return User.query.filter(User.username.__eq__(username.strip()),
                              User.password.__eq__(password),
-                                User.user_role.__eq__(role)).first() 
+                             User.user_role.__eq__(role)).first()
 
 def get_user_by_id(user_id):
     return User.query.get(user_id)
 
-def add_formulaire(gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke):
+def add_formulaire(gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status):
     formulaire = Formulaire(gender=gender.strip(),
                             age=age.strip(),
                             hypertension=hypertension.strip(),
@@ -79,7 +79,6 @@ def add_formulaire(gender, age, hypertension, heart_disease, ever_married, work_
                             Residence_type=Residence_type.strip(),
                             avg_glucose_level=avg_glucose_level.strip(),
                             bmi=bmi.strip(),
-                            smoking_status=smoking_status.strip(),
-                            stroke=stroke.strip())
+                            smoking_status=smoking_status.strip())
     db.session.add(formulaire)
     db.session.commit()

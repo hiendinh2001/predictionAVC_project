@@ -10,7 +10,7 @@ from app.models import UserRole
 @app.route("/")
 def home(): #index.html
 
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/formulaire', methods=['get', 'post'])
 def formulaire():
@@ -26,7 +26,6 @@ def formulaire():
         avg_glucose_level = request.form.get('avg_glucose_level')
         bmi = request.form.get('bmi')
         smoking_status = request.form.get('smoking_status')
-        stroke = request.form.get('stroke')
 
         try:
             utils.add_formulaire(gender=gender,
@@ -38,15 +37,18 @@ def formulaire():
                            Residence_type=Residence_type,
                            avg_glucose_level=avg_glucose_level,
                            bmi=bmi,
-                           smoking_status=smoking_status,
-                           stroke=stroke)
-            return redirect(url_for('user_signin'))
+                           smoking_status=smoking_status)
+            return redirect(url_for('valide'))
         except Exception as ex:
             err_msg = 'Le système a une erreur' + str(ex)
 
-    return render_template('home.html',
+    return render_template('formulaire.html',
                            err_msg=err_msg)
 
+@app.route('/valide', methods=['get', 'post'])
+def valide():
+
+    return render_template('valide.html')
 @app.route('/register', methods=['get', 'post']) 
 def user_register():
     err_msg = "" 

@@ -48,7 +48,7 @@ class MyAdminIndex(AdminIndexView):
         return self.render('admin/index.html')
 
 admin = Admin(app=app,
-              name='Hoptilit',
+              name='NeuralStroke',
               template_mode='bootstrap4',
               index_view=MyAdminIndex())
 #admin.add_view(AuthenticatedModelView(Service, db.session, name='Service'))

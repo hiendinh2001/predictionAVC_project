@@ -38,6 +38,7 @@ class Formulaire(BaseModel):
     avg_glucose_level = Column(Float, nullable=False)
     bmi = Column(Float, nullable=False)
     smoking_status = Column(String(50), nullable=False)
+    stroke = Column(Integer)
 
     def __str__(self):
         return self.name

@@ -7,12 +7,12 @@ from flask_login import login_user, logout_user, current_user
 from flask_login import login_required 
 from app.models import UserRole
 
-@app.route("/")
+"""@app.route("/")
 def home(): #index.html
 
-    return render_template('index.html')
+    return render_template('index.html')"""
 
-@app.route('/formulaire', methods=['get', 'post'])
+@app.route('/', methods=['get', 'post'])
 def formulaire():
     err_msg = ""
     if request.method.__eq__('POST'):
@@ -49,6 +49,12 @@ def formulaire():
 def valide():
 
     return render_template('valide.html')
+
+@app.route('/informations')
+def informations():
+
+    return render_template('informations.html')
+
 @app.route('/register', methods=['get', 'post']) 
 def user_register():
     err_msg = "" 
@@ -58,8 +64,6 @@ def user_register():
         password = request.form.get('password')
         email = request.form.get('email')
         confirm = request.form.get('confirm')
-        fonction = request.form.get('fonction')
-        service = request.form.get('service')
         avatar_path = None
 
         try: 
@@ -73,9 +77,7 @@ def user_register():
                                username=username,
                                password=password,
                                email=email,
-                               avatar=avatar_path,
-                               fonction=fonction,
-                               service=service)
+                               avatar=avatar_path)
                 return redirect(url_for('user_signin')) 
             else:
                 err_msg = 'Le mot de passe ressaisi est incorrect'
@@ -97,9 +99,9 @@ def user_signin():
         if user: 
             login_user(user=user)
             if 'product_id' in request.args:
-                return redirect(url_for(request.args.get('next', 'home'), product_id=request.args['product_id']))
+                return redirect(url_for(request.args.get('next', 'formulaire'), product_id=request.args['product_id']))
 
-            return redirect(url_for(request.args.get('next', 'home')))
+            return redirect(url_for(request.args.get('next', 'formulaire')))
         else:
             err_msg = "Identifiant ou mot de passe incorrect!!!"
 
@@ -127,12 +129,7 @@ def user_signout():
 
 @login.user_loader 
 def user_load(user_id):
-    return utils.get_user_by_id(user_id=user_id) 
-
-@app.route('/info-perso') 
-@login_required
-def info_perso():
-    return render_template('info_perso.html')
+    return utils.get_user_by_id(user_id=user_id)
 
 if __name__ == '__main__':
     from app.admin import *

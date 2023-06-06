@@ -2,7 +2,7 @@ from app import app, db
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_admin import BaseView, expose, AdminIndexView
-from app.models import UserRole, Service, Status, Patient, Formulaire
+from app.models import UserRole, Formulaire
 from flask_login import current_user, logout_user
 from flask import redirect, request
 import utils

@@ -107,45 +107,148 @@
         <div class="container bg-dark text-white">
             <form action="{{ url_for('formulaire') }}" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label for="gender" class="form-label">Genre</label>
-                    <input type="text" class="form-control" id="gender" name="gender" placeholder="Homme ou Femme">
+                    <label class="form-label">Genre</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="gender-male" value="Homme">
+                        <label class="form-check-label" for="gender-male">Homme</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="gender-female" value="Femme">
+                        <label class="form-check-label" for="gender-female">Femme</label>
+                    </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="age" class="form-label">Age</label>
-                    <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+                    <input type="number" class="form-control" id="age" name="age" placeholder="Age">
                 </div>
+
                 <div class="mb-3">
-                    <label for="hypertension" class="form-label">Hypertension</label>
-                    <input type="text" class="form-control" id="hypertension" name="hypertension" placeholder="Oui ou Non">
+                    <label class="form-label">Hypertension</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="hypertension" id="hypertension-oui" value="Oui">
+                        <label class="form-check-label" for="hypertension-oui">
+                            Oui
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="hypertension" id="hypertension-non" value="Non">
+                        <label class="form-check-label" for="hypertension-non">
+                            Non
+                        </label>
+                    </div>
                 </div>
+
                 <div class="mb-3">
-                    <label for="heart_disease" class="form-label">Maladie cardiaque</label>
-                    <input type="text" class="form-control" id="heart_disease" name="heart_disease" placeholder="Oui ou Non">
+                    <label class="form-label">Maladie cardiaque</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="heart_disease" id="heart_disease-oui" value="Oui">
+                        <label class="form-check-label" for="heart_disease-oui">
+                            Oui
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="heart_disease" id="heart_disease-non" value="Non">
+                        <label class="form-check-label" for="heart_disease-non">
+                            Non
+                        </label>
+                    </div>
                 </div>
+
                 <div class="mb-3">
-                    <label for="ever_married" class="form-label">Etat civil : marié ?</label>
-                    <input type="text" class="form-control" id="ever_married" name="ever_married" placeholder="Oui ou Non">
+                    <label class="form-label">Etat civil : marié ?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ever_married" id="ever_married-oui" value="Oui">
+                        <label class="form-check-label" for="ever_married-oui">
+                            Oui
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="ever_married" id="ever_married-non" value="Non">
+                        <label class="form-check-label" for="ever_married-non">
+                            Non
+                        </label>
+                    </div>
                 </div>
+
                 <div class="mb-3">
-                    <label for="work_type" class="form-label">Travail</label>
-                    <input type="text" class="form-control" id="work_type" name="work_type" placeholder="Fonctionnaire ou N'a jamais travaillé ou Privé ou Travailleur indépendant ou Au foyer">
+                    <label class="form-label">Travail</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="work_type" id="fonctionnaire" value="Fonctionnaire">
+                        <label class="form-check-label" for="fonctionnaire">Fonctionnaire</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="work_type" id="n_a_jamais_travaille" value="N'a jamais travaillé">
+                        <label class="form-check-label" for="n_a_jamais_travaille">N'a jamais travaillé</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="work_type" id="prive" value="Privé">
+                        <label class="form-check-label" for="prive">Privé</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="work_type" id="travailleur_independant" value="Travailleur indépendant">
+                        <label class="form-check-label" for="travailleur_independant">Travailleur indépendant</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="work_type" id="au_foyer" value="Au foyer">
+                        <label class="form-check-label" for="au_foyer">Au foyer</label>
+                    </div>
                 </div>
+
                 <div class="mb-3">
-                    <label for="Residence_type" class="form-label">Lieu de vie</label>
-                    <input type="text" class="form-control" id="Residence_type" name="Residence_type" placeholder="Urbain ou Rural">
+                    <label class="form-label">Lieu de vie</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Residence_type" id="urbain" value="Urbain">
+                        <label class="form-check-label" for="urbain">
+                            Urbain
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Residence_type" id="rural" value="Rural">
+                        <label class="form-check-label" for="rural">
+                            Rural
+                        </label>
+                    </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="avg_glucose_level" class="form-label">Glycémie</label>
-                    <input type="text" class="form-control" id="avg_glucose_level" name="avg_glucose_level" placeholder="Glycémie moyenne (taux de glucose dans le sang)">
+                    <input type="number" step="0.01" class="form-control" id="avg_glucose_level" name="avg_glucose_level" placeholder="Glycémie moyenne (taux de glucose dans le sang)">
                 </div>
+
                 <div class="mb-3">
                     <label for="bmi" class="form-label">IMC</label>
-                    <input type="text" class="form-control" id="bmi" name="bmi" placeholder="Indice de Masse Corporelle">
+                    <input type="number" step="0.01" class="form-control" id="bmi" name="bmi" placeholder="Indice de Masse Corporelle">
                 </div>
+
                 <div class="mb-3">
-                    <label for="smoking_status" class="form-label">Fume ?</label>
-                    <input type="text" class="form-control" id="smoking_status" name="smoking_status" placeholder="Ne sait pas ou Auparavant ou Jamais ou Oui">
+                    <label class="form-label">Fume ?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_unknown" value="Ne sait pas">
+                        <label class="form-check-label" for="smoking_unknown">
+                            Ne sait pas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_before" value="Auparavant">
+                        <label class="form-check-label" for="smoking_before">
+                            Auparavant
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_never" value="Jamais">
+                        <label class="form-check-label" for="smoking_never">
+                            Jamais
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_yes" value="Oui">
+                        <label class="form-check-label" for="smoking_yes">
+                            Oui
+                        </label>
+                    </div>
                 </div>
+
 
                 <div class="text-center"><button type="submit" class="btn bg-light">Valider</button><br><br>
                 </div>

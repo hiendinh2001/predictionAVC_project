@@ -109,30 +109,30 @@
                 <div class="mb-3">
                     <label class="form-label">Genre</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="gender-male" value="Homme">
+                        <input class="form-check-input" type="radio" name="gender" id="gender-male" value="1" required>
                         <label class="form-check-label" for="gender-male">Homme</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gender" id="gender-female" value="Femme">
+                        <input class="form-check-input" type="radio" name="gender" id="gender-female" value="0" required>
                         <label class="form-check-label" for="gender-female">Femme</label>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="age" class="form-label">Age</label>
-                    <input type="number" class="form-control" id="age" name="age" placeholder="Age">
+                    <input type="number" class="form-control" id="age" name="age" placeholder="Age" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Hypertension</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="hypertension" id="hypertension-oui" value="Oui">
+                        <input class="form-check-input" type="radio" name="hypertension" id="hypertension-oui" value="1" required>
                         <label class="form-check-label" for="hypertension-oui">
                             Oui
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="hypertension" id="hypertension-non" value="Non">
+                        <input class="form-check-input" type="radio" name="hypertension" id="hypertension-non" value="0" required>
                         <label class="form-check-label" for="hypertension-non">
                             Non
                         </label>
@@ -142,13 +142,13 @@
                 <div class="mb-3">
                     <label class="form-label">Maladie cardiaque</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="heart_disease" id="heart_disease-oui" value="Oui">
+                        <input class="form-check-input" type="radio" name="heart_disease" id="heart_disease-oui" value="1" required>
                         <label class="form-check-label" for="heart_disease-oui">
                             Oui
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="heart_disease" id="heart_disease-non" value="Non">
+                        <input class="form-check-input" type="radio" name="heart_disease" id="heart_disease-non" value="0" required>
                         <label class="form-check-label" for="heart_disease-non">
                             Non
                         </label>
@@ -158,13 +158,13 @@
                 <div class="mb-3">
                     <label class="form-label">Etat civil : marié ?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ever_married" id="ever_married-oui" value="Oui">
+                        <input class="form-check-input" type="radio" name="ever_married" id="ever_married-oui" value="1" required>
                         <label class="form-check-label" for="ever_married-oui">
                             Oui
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ever_married" id="ever_married-non" value="Non">
+                        <input class="form-check-input" type="radio" name="ever_married" id="ever_married-non" value="0" required>
                         <label class="form-check-label" for="ever_married-non">
                             Non
                         </label>
@@ -174,23 +174,23 @@
                 <div class="mb-3">
                     <label class="form-label">Travail</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="work_type" id="fonctionnaire" value="Fonctionnaire">
+                        <input class="form-check-input" type="radio" name="work_type" id="fonctionnaire" value="0" required>
                         <label class="form-check-label" for="fonctionnaire">Fonctionnaire</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="work_type" id="n_a_jamais_travaille" value="N'a jamais travaillé">
+                        <input class="form-check-input" type="radio" name="work_type" id="n_a_jamais_travaille" value="1" required>
                         <label class="form-check-label" for="n_a_jamais_travaille">N'a jamais travaillé</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="work_type" id="prive" value="Privé">
+                        <input class="form-check-input" type="radio" name="work_type" id="prive" value="2" required>
                         <label class="form-check-label" for="prive">Privé</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="work_type" id="travailleur_independant" value="Travailleur indépendant">
+                        <input class="form-check-input" type="radio" name="work_type" id="travailleur_independant" value="3" required>
                         <label class="form-check-label" for="travailleur_independant">Travailleur indépendant</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="work_type" id="au_foyer" value="Au foyer">
+                        <input class="form-check-input" type="radio" name="work_type" id="au_foyer" value="4" required>
                         <label class="form-check-label" for="au_foyer">Au foyer</label>
                     </div>
                 </div>
@@ -198,13 +198,13 @@
                 <div class="mb-3">
                     <label class="form-label">Lieu de vie</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Residence_type" id="urbain" value="Urbain">
+                        <input class="form-check-input" type="radio" name="Residence_type" id="urbain" value="1" required>
                         <label class="form-check-label" for="urbain">
                             Urbain
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Residence_type" id="rural" value="Rural">
+                        <input class="form-check-input" type="radio" name="Residence_type" id="rural" value="0" required>
                         <label class="form-check-label" for="rural">
                             Rural
                         </label>
@@ -213,36 +213,36 @@
 
                 <div class="mb-3">
                     <label for="avg_glucose_level" class="form-label">Glycémie</label>
-                    <input type="number" step="0.01" class="form-control" id="avg_glucose_level" name="avg_glucose_level" placeholder="Glycémie moyenne (taux de glucose dans le sang)">
+                    <input type="number" step="0.01" class="form-control" id="avg_glucose_level" name="avg_glucose_level" placeholder="Glycémie moyenne (taux de glucose dans le sang)" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="bmi" class="form-label">IMC</label>
-                    <input type="number" step="0.01" class="form-control" id="bmi" name="bmi" placeholder="Indice de Masse Corporelle">
+                    <input type="number" step="0.01" class="form-control" id="bmi" name="bmi" placeholder="Indice de Masse Corporelle" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Fume ?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_unknown" value="Ne sait pas">
+                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_unknown" value="0" required>
                         <label class="form-check-label" for="smoking_unknown">
                             Ne sait pas
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_before" value="Auparavant">
+                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_before" value="1" required>
                         <label class="form-check-label" for="smoking_before">
                             Auparavant
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_never" value="Jamais">
+                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_never" value="2" required>
                         <label class="form-check-label" for="smoking_never">
                             Jamais
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_yes" value="Oui">
+                        <input class="form-check-input" type="radio" name="smoking_status" id="smoking_yes" value="3" required>
                         <label class="form-check-label" for="smoking_yes">
                             Oui
                         </label>
@@ -250,7 +250,7 @@
                 </div>
 
 
-                <div class="text-center"><button type="submit" class="btn bg-light">Valider</button><br><br>
+                <div class="text-center"><button type="submit" class="btn bg-light" onclick="clearForm()">Valider</button><br><br>
                 </div>
             </form>
         </div><br><br>
@@ -271,6 +271,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     -->
+    <script>
+        function clearForm() {
+            var form = document.getElementById("myForm");
+            var elements = form.elements;
+
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].type !== "submit") {
+                    elements[i].value = "";
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

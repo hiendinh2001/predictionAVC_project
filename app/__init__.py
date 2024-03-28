@@ -5,11 +5,17 @@ from flask_swagger_ui import get_swaggerui_blueprint
 import cloudinary
 from flask_login import LoginManager
 from flask_babelex import Babel
+import os
 
 
 app = Flask(__name__)
 app.secret_key = '12#^&*+_%&*)(*(&(*^&^$%$#((*65t87676'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:%s@localhost/prediction_avc?charset=utf8mb4' % quote('123456')
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:%s@localhost/prediction_avc?charset=utf8mb4' % quote('123456')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:@{}/{}'.format(
+    os.getenv('DB_USER', 'root'),
+    os.getenv('DB_HOST', 'localhost'),
+    os.getenv('DB_NAME', 'prediction_avc')
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['PAGE_SIZE'] = 6 
 app.config['COMMENT_SIZE'] = 3 

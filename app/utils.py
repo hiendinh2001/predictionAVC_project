@@ -31,16 +31,17 @@ def check_login(username, password, role=UserRole.USER):
 def get_user_by_id(user_id):
     return User.query.get(user_id)
 
-def add_formulaire(gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status):
+def add_formulaire(gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke):
     formulaire = Formulaire(gender=gender,
-                            age=age.strip(),
+                            age=age,
                             hypertension=hypertension,
                             heart_disease=heart_disease,
                             ever_married=ever_married,
                             work_type=work_type,
                             Residence_type=Residence_type,
-                            avg_glucose_level=avg_glucose_level.strip(),
-                            bmi=bmi.strip(),
-                            smoking_status=smoking_status)
+                            avg_glucose_level=avg_glucose_level,
+                            bmi=bmi,
+                            smoking_status=smoking_status,
+                            stroke=stroke)
     db.session.add(formulaire)
     db.session.commit()

@@ -7,43 +7,68 @@ from flask_login import login_user, logout_user, current_user
 from flask_login import login_required 
 from app.models import UserRole
 
+import joblib
+import os
+import numpy as np
+import pickle
+import sklearn
+
 """@app.route("/")
 def home(): #index.html
 
     return render_template('index.html')"""
 
-@app.route('/', methods=['get', 'post'])
+@app.route('/')
+def index():
+    return render_template('formulaire.html')
+
+@app.route('/result', methods=['POST','GET'])
 def formulaire():
     err_msg = ""
     if request.method.__eq__('POST'):
-        gender = request.form.get('gender')
-        age = request.form.get('age')
-        hypertension = request.form.get('hypertension')
-        heart_disease = request.form.get('heart_disease')
-        ever_married = request.form.get('ever_married')
-        work_type = request.form.get('work_type')
-        Residence_type = request.form.get('Residence_type')
-        avg_glucose_level = request.form.get('avg_glucose_level')
-        bmi = request.form.get('bmi')
-        smoking_status = request.form.get('smoking_status')
+        gender = int(request.form.get('gender'))
+        age = int(request.form.get('age').strip())
+        hypertension = int(request.form.get('hypertension'))
+        heart_disease = int(request.form.get('heart_disease'))
+        ever_married = int(request.form.get('ever_married'))
+        work_type = int(request.form.get('work_type'))
+        Residence_type = int(request.form.get('Residence_type'))
+        avg_glucose_level = float(request.form.get('avg_glucose_level').strip())
+        bmi = float(request.form.get('bmi').strip())
+        smoking_status = int(request.form.get('smoking_status'))
 
-        try:
-            utils.add_formulaire(gender=gender,
-                           age=age,
-                           hypertension=hypertension,
-                           heart_disease=heart_disease,
-                           ever_married=ever_married,
-                           work_type=work_type,
-                           Residence_type=Residence_type,
-                           avg_glucose_level=avg_glucose_level,
-                           bmi=bmi,
-                           smoking_status=smoking_status)
-            return redirect(url_for('valide'))
-        except Exception as ex:
-            err_msg = 'Le système a une erreur' + str(ex)
+        x = np.array([gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type,
+                      avg_glucose_level, bmi, smoking_status]).reshape(1, -1)
 
-    return render_template('formulaire.html',
-                           err_msg=err_msg)
+        scaler_path = os.path.join('C:/Users/hien2/Downloads/github/predictionAVC_project/app/models/scaler.pkl')
+        with open(scaler_path, 'rb') as scaler_file:
+            scaler = pickle.load(scaler_file)
+
+        x = scaler.transform(x)
+
+        model_path = os.path.join('C:/Users/hien2/Downloads/github/predictionAVC_project/app/models/svm_model.sav')
+        dt = joblib.load(model_path)
+
+        Y_pred = dt.predict(x)
+
+        utils.add_formulaire(gender=gender,
+                               age=age,
+                               hypertension=hypertension,
+                               heart_disease=heart_disease,
+                               ever_married=ever_married,
+                               work_type=work_type,
+                               Residence_type=Residence_type,
+                               avg_glucose_level=avg_glucose_level,
+                               bmi=bmi,
+                               smoking_status=smoking_status,
+                               stroke=Y_pred)
+
+        if Y_pred == 0:
+            return render_template('nostroke.html', err_msg=err_msg)
+        else:
+            return render_template('stroke.html', err_msg=err_msg)
+
+    #return render_template('formulaire.html', err_msg=err_msg)
 
 @app.route('/valide', methods=['get', 'post'])
 def valide():

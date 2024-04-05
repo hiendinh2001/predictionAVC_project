@@ -7,6 +7,8 @@ from flask_login import login_user, logout_user, current_user
 from flask_login import login_required 
 from app.models import UserRole
 
+from app.models import Formulaire
+
 import joblib
 import os
 import numpy as np
@@ -67,10 +69,13 @@ def formulaire():
                              smoking_status=smoking_status,
                              stroke=Y_pred_value)
 
+        # Récupérer les dernières données soumises depuis la base de données
+        last_submissions = Formulaire.query.order_by(Formulaire.id.desc()).limit(1).all()
+
         if Y_pred_value == 0:
-            return render_template('nostroke.html', err_msg=err_msg)
+            return render_template('nostroke.html', err_msg=err_msg, last_submissions=last_submissions)
         else:
-            return render_template('stroke.html', err_msg=err_msg)
+            return render_template('stroke.html', err_msg=err_msg, last_submissions=last_submissions)
 
     #return render_template('formulaire.html', err_msg=err_msg)
 

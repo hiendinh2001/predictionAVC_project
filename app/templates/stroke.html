@@ -91,6 +91,64 @@
     </div>
 
     <div class="container">
+         <div class="mb-5 mt-5">
+            <!--<h2 class="text-center">Dernières données soumises</h2>-->
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>Genre</th>
+                        <th>Age</th>
+                        <th>Tension artérielle élevée</th>
+                        <th>Maladie cardiaque</th>
+                        <th>Marié</th>
+                        <th>Type de travail</th>
+                        <th>Type de résidence</th>
+                        <th>Niveau de glucose moyen</th>
+                        <th>IMC</th>
+                        <th>Statut tabagique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for submission in last_submissions %}
+                        <tr>
+                            <td>{% if submission.gender == '1' %} Homme {% else %} Femme {% endif %}</td>
+                            <td>{{ submission.age }}</td>
+                            <td>{% if submission.hypertension == '1' %} Oui {% else %} Non {% endif %}</td>
+                            <td>{% if submission.heart_disease == '1' %} Oui {% else %} Non {% endif %}</td>
+                            <td>{% if submission.ever_married == '1' %} Oui {% else %} Non {% endif %}</td>
+                            <td>
+                                {% if submission.work_type == '0' %}
+                                    Fonctionnaire
+                                {% elif submission.work_type == '1' %}
+                                    N'a jamais travaillé
+                                {% elif submission.work_type == '2' %}
+                                    Privé
+                                {% elif submission.work_type == '3' %}
+                                    Travailleur indépendant
+                                {% else %}
+                                    Au foyer
+                                {% endif %}
+                            </td>
+                            <td>{% if submission.Residence_type == '1' %} Urbain {% else %} Rural {% endif %}</td>
+                            <td>{{ submission.avg_glucose_level }}</td>
+                            <td>{{ submission.bmi }}</td>
+                            <td>
+                                {% if submission.smoking_status == '0' %}
+                                    Ne sait pas
+                                {% elif submission.smoking_status == '1' %}
+                                    Auparavant
+                                {% elif submission.smoking_status == '2' %}
+                                    Jamais
+                                {% else %}
+                                    Oui
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
             <h1 class="fw-normal"><strong>Vous avez été diagnostiqué avec un risque d'accident vasculaire cérébral.</strong></h1><br>
             <p class=" text-warning"><b>L'algorithme vous a diagnostiqué un risque d'accident vasculaire cérébral en fonction de vos saisies. Veuillez consulter un médecin.</b></p>

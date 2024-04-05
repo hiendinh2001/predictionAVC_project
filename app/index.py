@@ -46,24 +46,28 @@ def formulaire():
 
         x = scaler.transform(x)
 
-        model_path = os.path.join('C:/Users/hien2/Downloads/github/predictionAVC_project/app/models/svm_model.sav')
+        model_path = os.path.join('C:/Users/hien2/Downloads/github/predictionAVC_project/app/models/rf_model.sav')
         dt = joblib.load(model_path)
 
         Y_pred = dt.predict(x)
 
-        utils.add_formulaire(gender=gender,
-                               age=age,
-                               hypertension=hypertension,
-                               heart_disease=heart_disease,
-                               ever_married=ever_married,
-                               work_type=work_type,
-                               Residence_type=Residence_type,
-                               avg_glucose_level=avg_glucose_level,
-                               bmi=bmi,
-                               smoking_status=smoking_status,
-                               stroke=Y_pred)
+        # Extraire la valeur prédite de l'array numpy
+        Y_pred_value = int(Y_pred[0])
 
-        if Y_pred == 0:
+        # Enregistrer la prédiction dans la base de données
+        utils.add_formulaire(gender=gender,
+                             age=age,
+                             hypertension=hypertension,
+                             heart_disease=heart_disease,
+                             ever_married=ever_married,
+                             work_type=work_type,
+                             Residence_type=Residence_type,
+                             avg_glucose_level=avg_glucose_level,
+                             bmi=bmi,
+                             smoking_status=smoking_status,
+                             stroke=Y_pred_value)
+
+        if Y_pred_value == 0:
             return render_template('nostroke.html', err_msg=err_msg)
         else:
             return render_template('stroke.html', err_msg=err_msg)

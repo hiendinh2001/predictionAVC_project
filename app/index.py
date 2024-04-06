@@ -22,7 +22,19 @@ def home(): #index.html
 
 @app.route('/')
 def index():
-    return render_template('formulaire.html')
+    return render_template('index.html')
+
+@app.route("/about")
+def about():
+    return render_template('about.html')
+
+@app.route("/team")
+def team():
+    return render_template('team.html')
+
+@app.route("/contact")
+def contact():
+    return render_template('contact.html')
 
 @app.route('/result', methods=['POST','GET'])
 def formulaire():
@@ -73,9 +85,11 @@ def formulaire():
         last_submissions = Formulaire.query.order_by(Formulaire.id.desc()).limit(1).all()
 
         if Y_pred_value == 0:
-            return render_template('nostroke.html', err_msg=err_msg, last_submissions=last_submissions)
+            return render_template('nostroke_result.html', err_msg=err_msg, last_submissions=last_submissions)
+            #return render_template('nostroke.html', err_msg=err_msg, last_submissions=last_submissions)
         else:
-            return render_template('stroke.html', err_msg=err_msg, last_submissions=last_submissions)
+            return render_template('stroke_result.html', err_msg=err_msg, last_submissions=last_submissions)
+            #return render_template('stroke.html', err_msg=err_msg, last_submissions=last_submissions)
 
     #return render_template('formulaire.html', err_msg=err_msg)
 

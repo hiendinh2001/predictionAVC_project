@@ -1,68 +1,692 @@
-{% extends 'layout/base.html' %} 
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
 
-{% block title %} Accueil {% endblock %}
+<!-- 
+THEME: NeuralStroke | NeuralStrokeal HTML Template
+VERSION: 1.0.0
+AUTHOR: Themefisher
 
-{% block content %}
-<main role="main">
-      <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Hoptilit</h1>
-          <p>Plus de temps pour soigner, moins de temps pour gérer, avec notre application de logistique hospitalière</p>
-          {% if not current_user.is_authenticated %}
-          <p><a class="btn btn-primary btn-lg" href="{{ url_for('user_signin') }}" role="button">Découvrir &raquo;</a></p>
-          {% endif %}
+HOMEPAGE: https://themefisher.com/products/NeuralStroke-NeuralStrokeal-template/
+DEMO: https://demo.themefisher.com/themefisher/NeuralStroke/
+GITHUB: https://github.com/themefisher/NeuralStroke-Bootstrap-NeuralStrokeal-Template
+
+WEBSITE: https://themefisher.com
+TWITTER: https://twitter.com/themefisher
+FACEBOOK: https://www.facebook.com/themefisher
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+
+  <!-- ** Basic Page Needs ** -->
+  <meta charset="utf-8">
+  <title>NeuralStroke</title>
+
+  <!-- ** Mobile Specific Metas ** -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="NeuralStrokeal HTML Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher NeuralStrokeal HTML Template v1.0">
+
+  <!-- theme meta -->
+  <meta name="theme-name" content="NeuralStroke" />
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/bootstrap/bootstrap.min.css') }}">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/slick/slick.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/slick/slick-theme.css') }}">
+  <!-- FancyBox -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.css') }}">
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fontawesome/css/all.min.css') }}">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/animation/animate.min.css') }}">
+  <!-- jquery-ui -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/jquery-ui/jquery-ui.css') }}">
+  <!-- timePicker -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/timePicker/timePicker.css') }}">
+
+  <!-- Stylesheets -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+</head>
+
+
+<body>
+  <div class="page-wrapper">
+
+  
+
+<!--header top-->
+<!-- <div class="header-top">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="top-left text-center text-md-left">
+          <h6>Opening Hours : Saturday to Tuesday - 8am to 10pm</h6>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="top-right text-center text-md-right">
+          <ul class="social-links">
+            <li>
+              <a href="https://themefisher.com/" aria-label="facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://themefisher.com/" aria-label="twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://themefisher.com/" aria-label="google-plus">
+                <i class="fab fa-google-plus-g"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://themefisher.com/" aria-label="instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://themefisher.com/" aria-label="pinterest">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!--header top-->
 
-      <br/>
-
-        <div class="row bg-white ml-5 mr-5">
-          <div class="col-md-1 mb-4 text-center">
-            <i class="fa-regular fa-calendar fa-2x mt-2"></i>
-          </div>
-            <div class="col-md-5 mb-4">
-            <h2>Suivi en temps réel des patients</h2>
-            <p>Affiche le nombre de patients en attente, admis et sortis d'un service pour une vue d'ensemble en temps réel.</p>
-              {% if current_user.is_authenticated %}
-            <p><a class="btn btn-secondary" href="{{ url_for('status') }}" role="button">Voir détails &raquo;</a></p>
-              {% endif %}
-          </div>
-          <div class="col-md-1 mb-4 text-center">
-            <i class="fa-regular fa-folder fa-2x mt-2"></i>
-          </div>
-          <div class="col-md-5 mb-4">
-            <h2>Prédiction de la disponibilité des lits</h2>
-            <p>Utilise un modèle prédictif pour anticiper la disponibilité des lits et des chambres pour faciliter la planification.</p>
-            {% if current_user.is_authenticated %}
-            <p><a class="btn btn-secondary" href="#" role="button">Voir détails &raquo;</a></p>
-            {% endif %}
-          </div>
-          <div class="col-md-1 mb-4 text-center">
-            <i class="fa-regular fa-bookmark fa-2x mt-2"></i>
-          </div>
-          <div class="col-md-5 mb-4">
-            <h2>Attribution automatique des chambres</h2>
-            <p>Automatise la distribution des chambres en fonction des besoins des patients et de la disponibilité des lits.</p>
-            {% if current_user.is_authenticated %}
-            <p><a class="btn btn-secondary" href="#" role="button">Voir détails &raquo;</a></p>
-            {% endif %}
-          </div>
-          <div class="col-md-1 mb-4 text-center">
-            <i class="fa-regular fa-user fa-2x mt-2"></i>
-          </div>
-          <div class="col-md-5 mb-4">
-            <h2>Gestion des informations du patient</h2>
-            <p>Stocke et gère les informations de base du patient pour faciliter l'accès à ces informations par le personnel soignant.</p>
-            {% if current_user.is_authenticated %}
-            <p><a class="btn btn-secondary" href="{{ url_for('patient') }}" role="button">Voir détails &raquo;</a></p>
-            {% endif %}
+<!--Header Upper-->
+<!-- <section class="header-uper">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-xl-4 col-lg-3">
+        <div class="logo">
+          <a href="index.html">
+            <img loading="lazy" class="img-fluid" src="images/logo.png" alt="logo">
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-9">
+        <div class="right-side">
+          <ul class="contact-info pl-0 mb-4 mb-md-0">
+            <li class="item text-left">
+              <div class="icon-box">
+                <i class="far fa-envelope"></i>
+              </div>
+              <strong>Email</strong>
+              <br>
+              <a href="mailto:info@NeuralStroke.com">
+                <span>info@NeuralStroke.com</span>
+              </a>
+            </li>
+            <li class="item text-left">
+              <div class="icon-box">
+                <i class="fas fa-phone"></i>
+              </div>
+              <strong>Téléphone</strong>
+              <br>
+              <span>+33 1 23 45 67 89</span>
+            </li>
+          </ul>
+          <div class="link-btn text-center text-lg-right">
+            <a href="contact.html" class="btn-style-one">Appoinment</a>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!--Header Upper-->
 
-        <br>
+
+<!--Main Header-->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse justify-content-center" id="navbarLinks">
+      <ul class="navbar-nav">
+        <li class="nav-item {% if request.path == url_for('index') %}active{% endif %}"><a href="{{ url_for('index') }}" class="nav-link">Accueil</a></li>
+        <li class="nav-item {% if request.path == url_for('about') %}active{% endif %}"><a href="{{ url_for('about') }}" class="nav-link">À propos</a></li>
+        <li class="nav-item {% if request.path == url_for('team') %}active{% endif %}"><a href="{{ url_for('team') }}" class="nav-link">Équipe</a></li>
+        <li class="nav-item {% if request.path == url_for('contact') %}active{% endif %}"><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--End Main Header -->
+
+<!--=================================
+=            Page Slider            =
+==================================-->
+<div class="hero-slider">
+  <!-- Slider Item -->
+  <div class="slider-item slide1" style="background-image: url('{{ url_for('static', filename='images/slider/slider-bg-1.jpg') }}')">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Slide Content Start -->
+          <div class="content style text-center">
+            <h2 class="text-white text-bold mb-2" data-animation-in="slideInLeft">Prédiction de l'AVC</h2>
+            <p class="tag-text mb-4" data-animation-in="slideInRight">Cet outil prédictif permet d'évaluer le risque d'AVC chez un patient.</p>
+            <!-- <a href="about.html" class="btn btn-main btn-white" data-animation-in="slideInLeft" data-duration-in="1.2">explore</a> -->
+          </div>
+          <!-- Slide Content End -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Slider Item -->
+  <div class="slider-item" style="background-image: url('{{ url_for('static', filename='images/slider/slider-bg-2.jpg') }}');">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Slide Content Start-->
+          <div class="content style text-center">
+            <h2 class="text-white" data-animation-in="slideInRight">Prédiction de l'AVC</h2>
+            <p class="tag-text mb-4" data-animation-in="slideInRight" data-duration-in="0.6">La détection précoce des risques d'accident vasculaire cérébral peut sauver des vies.</p>
+            <!-- <a href="about.html" class="btn btn-main btn-white" data-animation-in="slideInRight" data-duration-in="1.2">about us</a> -->
+          </div>
+          <!-- Slide Content End-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Slider Item -->
+  <div class="slider-item" style="background-image: url('{{ url_for('static', filename='images/slider/slider-bg-3.jpg') }}')">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Slide Content Start -->
+          <div class="content text-center style">
+            <h2 class="text-white text-bold mb-2" data-animation-in="slideInRight">Prédiction de l'AVC</h2>
+            <p class="tag-text mb-4" data-animation-in="slideInLeft">Les données médicales sont analysées à l'aide de techniques d'apprentissage automatique pour la
+              prédiction des risques.</p>
+            <!-- <a href="about.html" class="btn btn-main btn-white" data-animation-in="slideInRight"  data-duration-in="1.2">shop now</a> -->
+          </div>
+          <!-- Slide Content End -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--====  End of Page Slider  ====-->
+
+<section class="cta">
+  <div class="container">
+    <div class="row">
+			<div class="col-lg-12">
+				<div class="image-content">
+					<div class="section-title text-justify">
+						<h3>Remplissez ce formulaire pour évaluer les risque d'AVC</span></h3>
+						<p class="my-5">Un AVC (accident vasculaire cérébral), également connu sous le nom d'attaque cérébrale, est une interruption soudaine de l'apport sanguin à une partie du cerveau, qui entraîne la mort des cellules cérébrales en quelques minutes. Cela peut se produire en raison d'une obstruction ou d'une rupture d'un vaisseau sanguin dans le cerveau. <br><br> Les symptômes de l'AVC peuvent inclure une faiblesse soudaine ou un engourdissement du visage, des bras ou des jambes, des difficultés à parler ou à comprendre la parole, une vision floue, des vertiges, des maux de tête intenses, entre autres. <br><br>L'AVC est une urgence médicale qui peut entraîner des lésions cérébrales permanentes, une invalidité ou même la mort, il est donc important de recevoir des soins médicaux immédiatement si l'on suspecte un AVC.</p>
+					</div>
+        </div>
+      </div>
+    </div>
+    <form id="myForm" action="{{ url_for('formulaire') }}" method="post" enctype="multipart/form-data">
+      <div class="cta-block row no-gutters text-white justify-content-center">
+        <div class="col-lg-4 col-md-6 working-time item">
+          <i class="fa fa-venus-mars"></i>
+          <h2>Genre</h2>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="gender-male" value="1" required>
+            <label class="form-check-label" for="gender-male">Homme</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="gender-female" value="0" required>
+            <label class="form-check-label" for="gender-female">Femme</label>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 emmergency item">
+          <i class="fa fa-user"></i>
+          <h2>Âge</h2>
+          <input type="number" class="form-control" id="age" name="age" placeholder="Âge" min="0" required>
+        </div>
+      </div>
+      <div class="cta-block row no-gutters text-white justify-content-center">
+        <div class="col-lg-4 col-md-6 emmergency item">
+          <i class="fa fa-heartbeat"></i>
+          <h2>Tension artérielle élevée</h2>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="hypertension" id="hypertension-oui" value="1" required>
+            <label class="form-check-label" for="hypertension-oui">
+                Oui
+            </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="hypertension" id="hypertension-non" value="0" required>
+              <label class="form-check-label" for="hypertension-non">
+                  Non
+              </label>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 working-time item">
+          <i class="fa fa-heart-broken"></i>
+          <h2>Maladie cardiaque</h2>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="heart_disease" id="heart_disease-oui" value="1" required>
+            <label class="form-check-label" for="heart_disease-oui">
+                Oui
+            </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="heart_disease" id="heart_disease-non" value="0" required>
+              <label class="form-check-label" for="heart_disease-non">
+                  Non
+              </label>
+          </div>
+        </div>
+      </div>
+      <div class="cta-block row no-gutters text-white justify-content-center">
+        <div class="col-lg-4 col-md-6 working-time item">
+          <i class="fa fa-ring"></i>
+          <h2>Etat civil : marié ?</h2>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ever_married" id="ever_married-oui" value="1" required>
+            <label class="form-check-label" for="ever_married-oui">
+                Oui
+            </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="ever_married" id="ever_married-non" value="0" required>
+              <label class="form-check-label" for="ever_married-non">
+                  Non
+              </label>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 emmergency item">
+          <i class="fa fa-briefcase"></i>
+          <h2>Type de travail</h2>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="work_type" id="fonctionnaire" value="0" required>
+            <label class="form-check-label" for="fonctionnaire">Fonctionnaire</label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="work_type" id="n_a_jamais_travaille" value="1" required>
+              <label class="form-check-label" for="n_a_jamais_travaille">N'a jamais travaillé</label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="work_type" id="prive" value="2" required>
+              <label class="form-check-label" for="prive">Privé</label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="work_type" id="travailleur_independant" value="3" required>
+              <label class="form-check-label" for="travailleur_independant">Travailleur indépendant</label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="work_type" id="au_foyer" value="4" required>
+              <label class="form-check-label" for="au_foyer">Au foyer</label>
+          </div>
+        </div>
+      </div>
+      <div class="cta-block row no-gutters text-white justify-content-center">
+        <div class="col-lg-4 col-md-6 emmergency item">
+          <i class="fa fa-home"></i>
+          <h2>Type de résidence</h2>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Residence_type" id="urbain" value="1" required>
+            <label class="form-check-label" for="urbain">
+                Urbain
+            </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="Residence_type" id="rural" value="0" required>
+              <label class="form-check-label" for="rural">
+                  Rural
+              </label>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 working-time item">
+          <i class="fa fa-flask"></i>
+          <h2>Niveau de glucose moyen</h2>
+          <input type="number" step="0.01" class="form-control" id="avg_glucose_level" name="avg_glucose_level" placeholder="Glycémie moyenne (taux de glucose dans le sang)" min="0" required>
+        </div>
+      </div>
+      <div class="cta-block row no-gutters text-white justify-content-center">
+        <div class="col-lg-4 col-md-6 working-time item">
+          <i class="fa fa-weight"></i>
+          <h2>IMC</h2>
+          <input type="number" step="0.01" class="form-control" id="bmi" name="bmi" placeholder="Indice de Masse Corporelle" min="0" required>
+        </div>
+        <div class="col-lg-4 col-md-6 emmergency item">
+          <i class="fa fa-smoking"></i>
+          <h2>Statut tabagique</h2>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="smoking_status" id="smoking_unknown" value="0" required>
+            <label class="form-check-label" for="smoking_unknown">
+                Ne sait pas
+            </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="smoking_status" id="smoking_before" value="1" required>
+              <label class="form-check-label" for="smoking_before">
+                  Auparavant
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="smoking_status" id="smoking_never" value="2" required>
+              <label class="form-check-label" for="smoking_never">
+                  Jamais
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="smoking_status" id="smoking_yes" value="3" required>
+              <label class="form-check-label" for="smoking_yes">
+                  Oui
+              </label>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center text-white mt-3">
+        <button type="submit" class="btn btn-style-one no-hover">Valider</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!--about section-->
+<!-- <section class="feature-section section bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="image-content">
+					<div class="section-title text-center">
+						<h3>Remplissez ce formulaire pour évaluer les risque d'AVC</span></h3>
+						<p class="mb-0">Un AVC (accident vasculaire cérébral), également connu sous le nom d'attaque cérébrale, est une interruption soudaine de l'apport sanguin à une partie du cerveau, qui entraîne la mort des cellules cérébrales en quelques minutes. Cela peut se produire en raison d'une obstruction ou d'une rupture d'un vaisseau sanguin dans le cerveau. Les symptômes de l'AVC peuvent inclure une faiblesse soudaine ou un engourdissement du visage, des bras ou des jambes, des difficultés à parler ou à comprendre la parole, une vision floue, des vertiges, des maux de tête intenses, entre autres. L'AVC est une urgence médicale qui peut entraîner des lésions cérébrales permanentes, une invalidité ou même la mort, il est donc important de recevoir des soins médicaux immédiatement si l'on suspecte un AVC.</p>
+					</div>
+          <form id="myForm" action="{{ url_for('formulaire') }}" method="post" enctype="multipart/form-data">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="item">
+                  <div class="icon-box">
+                    <figure>
+                      <img loading="lazy" src="images/resource/1.png" alt="features image">
+                    </figure>
+                  </div>
+                  <h3 class="mb-2">Question 1 : Genre</h3>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="gender-male" value="1" required>
+                    <label class="form-check-label" for="gender-male">Homme</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="gender-female" value="0" required>
+                    <label class="form-check-label" for="gender-female">Femme</label>
+                </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="item">
+                  <div class="icon-box">
+                    <figure>
+                      <a href="services.html">
+                        <img loading="lazy" src="images/resource/2.png" alt="features image">
+                      </a>
+                    </figure>
+                  </div>
+                  <h3 class="mb-2">Diaginostic</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ducimus veniam illo quibusdam pariatur
+                    ex sunt, est aspernatur
+                    at debitis eius vitae vel nostrum dolorem labore autem corrupti odit mollitia?</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="item">
+                  <div class="icon-box">
+                    <figure>
+                      <a href="services.html">
+                        <img loading="lazy" src="images/resource/3.png" alt="features image">
+                      </a>
+                    </figure>
+                  </div>
+                  <h3 class="mb-2">Psycology</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ducimus veniam illo quibusdam pariatur
+                    ex sunt, est aspernatur
+                    at debitis eius vitae vel nostrum dolorem labore autem corrupti odit mollitia?</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="item">
+                  <div class="icon-box">
+                    <figure>
+                      <a href="services.html">
+                        <img loading="lazy" src="images/resource/4.png" alt="features image">
+                      </a>
+                    </figure>
+                  </div>
+                  <h3 class="mb-2">General Treatment</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ducimus veniam illo quibusdam pariatur
+                    ex sunt, est aspernatur
+                    at debitis eius vitae vel nostrum dolorem labore autem corrupti odit mollitia?</p>
+                </div>
+              </div>
+            </div>
+          </form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> -->
+<!--End about section-->
+
+<!--Start about us area-->
+<!--  -->
+<!--End about us area-->
+
+<!--Service Section-->
+
+<!--End Service Section-->
+
+<!--team section-->
+
+<!--End team section-->
+
+<!--testimonial-section-->
+
+<!--End testimonial-section-->
+
+<!-- Contact Section -->
+
+<!-- End Contact Section -->
+
+  <!--footer-main-->
+  <footer class="footer-main">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="about-widget">
+              <div class="footer-logo">
+                <figure>
+                  <a href="{{ url_for('index') }}">
+                    <img loading="lazy" class="img-fluid" src="{{ url_for('static', filename='images/logo-2.png') }}" alt="NeuralStroke">
+                  </a>
+                </figure>
+              </div>
+              <p>La détection précoce des risques d'accident vasculaire cérébral peut sauver des vies.</p>
+              <ul class="location-link">
+                <li class="item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>94400, Vitry-sur-Seine, France</p>
+                </li>
+                <li class="item">
+                  <i class="far fa-envelope" aria-hidden="true"></i>
+                  <a href="mailto:info@NeuralStroke.com">
+                    <p>info@NeuralStroke.com</p>
+                  </a>
+                </li>
+                <li class="item">
+                  <i class="fas fa-phone" aria-hidden="true"></i>
+                  <p>+33 1 23 45 67 89</p>
+                </li>
+              </ul>
+              <ul class="list-inline social-icons">
+                <li class="list-inline-item"><a href="" aria-label="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="" aria-label="twitter"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="" aria-label="instagram"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="" aria-label="github"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-5 mb-3 mb-md-0">
+            <h2>Avantages</h2>
+            <ul class="menu-link">
+              <li>
+                <a href="">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>Précision</a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>Accessibilité</a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>Personnalisation</a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>Fiabilité</a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>Polyvalence</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-7">
+            <div class="social-links">
+              <h2>Articles</h2>
+              <ul>
+                <li class="item">
+                  <div class="media">
+                    <div class="media-left mr-3">
+                      <a href="">
+                        <img loading="lazy" src="{{ url_for('static', filename='images/blog/post-thumb-small.jpg') }}" alt="post-thumb">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h5><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9017592/">Early Stroke Prediction Methods for Prevention of Strokes</a></h5>
+                      <p>Cliquez pour lire</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="item">
+                  <div class="media">
+                    <div class="media-left mr-3">
+                      <a href="">
+                        <img loading="lazy" src="{{ url_for('static', filename='images/blog/post-thumb-small.jpg') }}" alt="post-thumb">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h5><a href="https://ieeexplore.ieee.org/document/9734197">Stroke Prediction using Machine Learning Methods</a></h5>
+                      <p>Cliquez pour lire</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container clearfix">
+        <div class="copyright-text">
+          <p>&copy; Tous droits réservés 2024 <br> Développé par <b>Hien DINH - Laura KORENFELD <br> EPISEN ITS3 FISA </b></p>
+        </div>
+        <ul class="footer-bottom-link">
+          <li>
+            <a href="{{ url_for('index') }}">Accueil</a>
+          </li>
+          <li>
+            <a href="{{ url_for('about') }}">À propos</a>
+          </li>
+          <li>
+            <a href="{{ url_for('contact') }}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <!--End footer-main-->
+
+  <!-- scroll-to-top -->
+  <div id="back-to-top" class="back-to-top">
+    <i class="fa fa-angle-up"></i>
+  </div>
+
+  </div>
+  <!--End pagewrapper-->
 
 
-    </main>
+  <!--Scroll to top-->
+  <div class="scroll-to-top scroll-to-target" data-target=".header-top">
+    <span class="icon fa fa-angle-up"></span>
+  </div>
 
 
-{% endblock %}
+  <!-- jquery -->
+  <script src="{{ url_for('static', filename='plugins/jquery.min.js') }}"></script>
+  <!-- bootstrap -->
+  <script src="{{ url_for('static', filename='plugins/bootstrap/bootstrap.min.js') }}"></script>
+  <!-- Slick Slider -->
+  <script src="{{ url_for('static', filename='plugins/slick/slick.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/slick/slick-animation.min.js') }}"></script>
+  <!-- FancyBox -->
+  <script src="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.js') }}" defer></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <script src="{{ url_for('static', filename='plugins/google-map/gmap.js') }}" defer></script>
+
+  <!-- jquery-ui -->
+  <script src="{{ url_for('static', filename='plugins/jquery-ui/jquery-ui.js') }}" defer></script>
+  <!-- timePicker -->
+  <script src="{{ url_for('static', filename='plugins/timePicker/timePicker.js') }}" defer></script>
+
+  <!-- script js -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  <script>
+    window.addEventListener('beforeunload', function () {
+        document.getElementById('myForm').reset();
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('myForm').addEventListener('submit', function () {
+            setTimeout(function () {
+                document.getElementById('myForm').reset();
+            }, 500);
+        });
+    });
+  </script>
+  <style>
+    .no-hover:hover {
+        background-color: #ffffff !important; /* Changez ceci selon la couleur de fond souhaitée */
+        color: #000000 !important; /* Changez ceci selon la couleur de texte souhaitée */
+    }
+  </style>
+</body>
+
+</html>
+

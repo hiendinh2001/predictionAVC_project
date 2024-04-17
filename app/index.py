@@ -180,5 +180,4 @@ def user_load(user_id):
     return utils.get_user_by_id(user_id=user_id)
 
 if __name__ == '__main__':
-    from app.admin import *
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
